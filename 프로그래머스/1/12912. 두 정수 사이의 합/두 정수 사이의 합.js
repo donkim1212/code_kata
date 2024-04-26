@@ -1,3 +1,3 @@
 function solution(a, b) {
-    return (a + b) * ((Math.max(a, b) - Math.min(a, b)) + 1) / 2;
+    return (a + b) * (Math.abs(a - b) + 1) / 2;
 }
