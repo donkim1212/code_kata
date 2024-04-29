@@ -1,0 +1,6 @@
+select WAREHOUSE_ID, 
+WAREHOUSE_NAME, 
+ADDRESS, 
+coalesce(FREEZER_YN, 'N')
+from FOOD_WAREHOUSE
+where WAREHOUSE_NAME like '%경기%'
