@@ -1,10 +1,10 @@
 function solution(n) {
-    return ternaryToDecimal(getTernery(n));
+    return ternaryToDecimal(getTernary(n));
 }
 
-function getTernery (n) {
+function getTernary (n) {
     if (n < 3) return "" + n;
-    return "" + (n % 3) + getTernery(Math.trunc(n / 3));
+    return "" + (n % 3) + getTernary(Math.trunc(n / 3));
 }
 
 function ternaryToDecimal (n) {
