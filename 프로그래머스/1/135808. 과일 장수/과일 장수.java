@@ -10,7 +10,8 @@ class Solution {
         for (int i = counts.length - 1; i >= 1; i--) {
             int boxes = (int) Math.floor(counts[i] / m);
             int leftover = (counts[i] % m) + prev;
-            total += boxes * i * m + ((int) Math.floor(leftover / m) * i * m);
+            int pm = i * m;
+            total += boxes * pm + ((int) Math.floor(leftover / m) * pm);
             prev = leftover % m;
         }
         return total;
