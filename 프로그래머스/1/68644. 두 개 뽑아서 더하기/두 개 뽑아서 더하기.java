@@ -11,11 +11,11 @@ class Solution {
             }
             else if (initCounts[numbers[i]] == 1) {
                 for (int j = i - 1; j >= 0; j--) {
-                if (!retCounts[numbers[i] + numbers[j]]) {
-                    retCounts[numbers[i] + numbers[j]] = true;
-                    count++;
+                    if (!retCounts[numbers[i] + numbers[j]]) {
+                        retCounts[numbers[i] + numbers[j]] = true;
+                        count++;
+                    }
                 }
-            }
             }
         }
         int[] ret = new int[count];
