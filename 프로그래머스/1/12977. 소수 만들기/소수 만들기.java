@@ -17,8 +17,8 @@ class Solution {
     }
     
     private int checkPrime (int num) {
-        double sqrt = Math.sqrt(num);
-        if (sqrt - Math.floor(sqrt) == 0) return -1;
+        // double sqrt = Math.sqrt(num);
+        // if (sqrt - Math.floor(sqrt) == 0) return -1;
         for (int i = 2; i < num - 1; i++) {
             if (num % i == 0) return -1;
         }
