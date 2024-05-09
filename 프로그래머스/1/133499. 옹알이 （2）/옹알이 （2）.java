@@ -1,6 +1,6 @@
 class Solution {
     public int solution(String[] babbling) {
-        String[] words = new String[] {"aya", "ye", "woo", "ma"};
+        // String[] words = new String[] {"aya", "ye", "woo", "ma"};
         int count = 0;
         int prev = 0;
         for (int i = 0; i < babbling.length; i++) {
