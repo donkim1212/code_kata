@@ -1,22 +1,27 @@
 class Solution {
+    private final char FILE_CHAR = '#';
     public int[] solution(String[] wallpaper) {
-        int[] ret = new int[] {50, 50, 0, 0};
-        for (int i = 0; i < wallpaper.length; i++) {
+        int[] ret = initCoords(wallpaper);
+        for (int i = ret[0]; i < wallpaper.length; i++) {
             String row = wallpaper[i];
-            boolean found = false;
-            for (int j = 0; j < row.length(); j++) {
-                char cur = row.charAt(j);
-                if (cur == '#') {
-                    found = true;
-                    ret[1] = Math.min(ret[1], j);
-                    ret[3] = Math.max(ret[3], j + 1);
-                }
-            }
-            if (found) {
-                if (ret[0] == 50) ret[0] = i;
+            int index = row.indexOf(FILE_CHAR);
+            if (index != -1) {
+                ret[1] = Math.min(ret[1], index);
                 ret[2] = i + 1;
+                index = row.lastIndexOf(FILE_CHAR);
+                ret[3] = Math.max(ret[3], index + 1);
             }
         }
         return ret;
+    }
+    
+    private int[] initCoords (String[] wp) {
+        int idx = 0;
+        int cur = -1;
+        do {
+            cur = wp[idx].indexOf(FILE_CHAR);
+            if (cur != -1) break;
+        } while (++idx < wp.length);
+        return new int[] {idx, cur, idx + 1, cur + 1};
     }
 }
