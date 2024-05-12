@@ -18,7 +18,7 @@ class Solution {
                      && sb.charAt(sb.length() - 1) == '3'
                      && sb.charAt(sb.length() - 2) == '2'
                      && sb.charAt(sb.length() - 3) == '1') {
-                    sb.delete(sb.length() - 3, sb.length());
+                    sb.setLength(sb.length() - 3);
                     burgerCount++;
                     continue;
                 }
