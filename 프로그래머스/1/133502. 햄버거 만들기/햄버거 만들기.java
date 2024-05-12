@@ -14,12 +14,11 @@ class Solution {
         for (int i = start + 1; i < ingredients.length; i++) {
             int cur = ingredients[i];
             if (sb.length() > 2) {
-                int index = sb.length() - 1;
                 if (cur == 1
-                     && sb.charAt(index--) == '3'
-                     && sb.charAt(index--) == '2'
-                     && sb.charAt(index) == '1') {
-                    sb.delete(index, sb.length());
+                     && sb.charAt(sb.length() - 1) == '3'
+                     && sb.charAt(sb.length() - 2) == '2'
+                     && sb.charAt(sb.length() - 3) == '1') {
+                    sb.delete(sb.length() - 3, sb.length());
                     burgerCount++;
                     continue;
                 }
