@@ -21,11 +21,12 @@ class Solution {
             prev = c;
             ret.append(c);
         }
+        
         return ret.toString();
     }
     
     private char toLowerCase (char c) {
-        int ret = (c == ' ') ? ' ' : c + DIFF;
+        int ret = c + DIFF;
         return (char) ret;
     }
     
