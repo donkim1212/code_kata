@@ -10,7 +10,6 @@ class Solution
     }
     
     private int getNextRoundNumber(int player) {
-        if (player == 1) return 1;
-        else return player / 2 + player % 2;
+        return player / 2 + player % 2;
     }
 }
