@@ -1,6 +1,5 @@
 class Solution {
     public int solution(int[] arr) {
-        // LCM = a * b * ... * (n - 1)
         int ret = arr[0];
         for (int i = 1; i < arr.length; i++) {
             ret = findLCM(arr[i], ret);
