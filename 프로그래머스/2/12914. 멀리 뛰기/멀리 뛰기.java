@@ -1,5 +1,3 @@
-import java.lang.Math;
-
 class Solution {
     private final int DIV = 1234567;
     public long solution(int n) {
