@@ -4,7 +4,6 @@ class Solution {
         for (int i = 1; i < arr.length; i++) {
             ret = findLCM(arr[i], ret);
         }
-        System.out.println(ret);
         return ret;
     }
     
