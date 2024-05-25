@@ -5,31 +5,21 @@ class Solution {
     public int solution(int k, int[][] dungeons) {
         this.dungeons = dungeons;
         boolean[] visited = new boolean[dungeons.length];
-        
-        for (int i = 0; i < dungeons.length; i++) {
-            visited[i] = true;
-            enterTheDungeon(k, 0, i, visited);
-            visited[i] = false;
-        }
-        
+        enterTheDungeon(k, 0, visited);
         return max;
     }
     
-    private void enterTheDungeon(int k, int depth, int dungeon, boolean[] visited) {
-        if (k < dungeons[dungeon][0]){
-            if (max < depth) max = depth;
-            return;
-        }
-        k -= dungeons[dungeon][1];
-        depth++;
-        
+    private void enterTheDungeon(int k, int depth, boolean[] visited) {
         for (int i = 0; i < visited.length; i++) {
             if (visited[i]) continue;
+            if (k < dungeons[i][0]){
+                if (max < depth) max = depth;
+                continue;
+            }
             visited[i] = true;
-            enterTheDungeon(k, depth, i, visited);
+            enterTheDungeon(k - dungeons[i][1], depth + 1, visited);
             visited[i] = false;
         }
-        
         
         if (max < depth) max = depth;
     }
