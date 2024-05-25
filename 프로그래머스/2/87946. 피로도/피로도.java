@@ -11,11 +11,7 @@ class Solution {
     
     private void enterTheDungeon(int k, int depth, boolean[] visited) {
         for (int i = 0; i < visited.length; i++) {
-            if (visited[i]) continue;
-            if (k < dungeons[i][0]){
-                if (max < depth) max = depth;
-                continue;
-            }
+            if (visited[i] || k < dungeons[i][0]) continue;
             visited[i] = true;
             enterTheDungeon(k - dungeons[i][1], depth + 1, visited);
             visited[i] = false;
