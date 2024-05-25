@@ -4,9 +4,9 @@ class Solution {
     
     public int solution(int k, int[][] dungeons) {
         this.dungeons = dungeons;
+        boolean[] visited = new boolean[dungeons.length];
         
         for (int i = 0; i < dungeons.length; i++) {
-            boolean[] visited = new boolean[dungeons.length];
             visited[i] = true;
             enterTheDungeon(k, 0, i, visited);
             visited[i] = false;
