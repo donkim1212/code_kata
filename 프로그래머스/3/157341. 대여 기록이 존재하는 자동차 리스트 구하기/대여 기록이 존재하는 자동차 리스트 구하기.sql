@@ -1,0 +1,8 @@
+SELECT rc.car_id
+FROM CAR_RENTAL_COMPANY_CAR as rc
+INNER JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY as rh
+ON rc.car_id=rh.car_id
+WHERE DATE_FORMAT(rh.start_date, '%m') = 10
+    AND car_type LIKE '세단'
+GROUP BY 1
+ORDER BY 1 DESC
