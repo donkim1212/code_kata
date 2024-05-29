@@ -1,4 +1,3 @@
-import java.lang.Math;
 import java.lang.StringBuilder;
 
 class Solution {
@@ -8,19 +7,27 @@ class Solution {
         int length = sb.length();
         int count = k;
         while (count-- > 0) {
-            cut(sb.length() - 1);
+            cut(count, sb.length() - 1);
         }
         
         return sb.toString();
     }
     
-    private void cut (int length) {
-        for (int i = 0; i < length; i++) {
+    private void cut (int count, int length) {
+        char a = sb.charAt(0);
+        char b = sb.charAt(count);
+        if (a < b) {
+            sb.deleteCharAt(0);
+            return;
+        }
+        
+        for (int i = count; i < length; i++) {
             if (sb.charAt(i) < sb.charAt(i + 1)) {
                 sb.deleteCharAt(i);
                 return;
             }
         }
+        
         sb.setLength(length);
     }
 }
