@@ -23,7 +23,7 @@ class Solution {
         
         if (converted[0] == 0) return "0";
         StringBuilder ret = new StringBuilder();
-        for (int i = 0; i < converted.length; i++) ret.append(converted[i]);
+        for (int n : converted) ret.append(n);
         
         return ret.toString();
     }
