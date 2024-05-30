@@ -4,42 +4,31 @@ import java.lang.Math;
 import java.lang.StringBuilder;
 
 class Solution {
-    private class StringIntComparator implements Comparator<String> {
+    private class IntegerComparator implements Comparator<Integer> {
+        private final int SHIFT = 14;
         @Override
-        public int compare (String a, String b) {
-            String temp = a;
-            a = a + b;
-            b = b + temp;
-            for (int i = 0; i < a.length(); i++) {
-                if (a.charAt(i) < b.charAt(i)) return 1;
-                else if (a.charAt(i) > b.charAt(i)) return -1;
-            }
-            return 0;
+        public int compare (Integer a, Integer b) {
+            if (a == b) return 0;
+            int temp = a;
+            int aLen = (int) Math.max((Math.log10(a)), 0) + 1;
+            int bLen = (int) Math.max((Math.log10(b)), 0) + 1;
+            a = a * (int) Math.pow(10, bLen) + b;
+            b = b * (int) Math.pow(10, aLen) + temp;
+            return b - a;
         }
     }
     public String solution(int[] numbers) {
-        String[] converted = new String[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            converted[i] = "" + numbers[i];
-        }
-        
-        Arrays.sort(converted, new StringIntComparator());
+        Integer[] converted = new Integer[numbers.length];
+        for (int i = 0; i < numbers.length; i++) converted[i] = numbers[i];
+        Arrays.sort(converted, new IntegerComparator());
         
         StringBuilder ret = new StringBuilder();
         for (int i = 0; i < converted.length; i++) {
+            if (ret.length() == 0 && converted[i] == 0) continue;
             ret.append(converted[i]);
         }
         
-        int i = 0;
-        boolean found = false;
-        while (i < ret.length() && ret.charAt(i) == '0') {
-            found = true;
-            i++;
-        }
-        
-        if (found) ret.delete(0, i);
         if (ret.length() == 0) return "0";
-        
         return ret.toString();
     }
 }
