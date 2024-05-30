@@ -9,8 +9,8 @@ class Solution {
         public int compare (Integer a, Integer b) {
             if (a == b) return 0;
             int temp = a;
-            int aLen = (int) Math.max((Math.log10(a)), 0) + 1;
-            int bLen = (int) Math.max((Math.log10(b)), 0) + 1;
+            int aLen = a == 0 ? 1 : (int) Math.log10(a) + 1;
+            int bLen = b == 0 ? 1 : (int) Math.log10(b) + 1;
             a = a * (int) Math.pow(10, bLen) + b;
             b = b * (int) Math.pow(10, aLen) + temp;
             return b - a;
