@@ -5,7 +5,6 @@ import java.lang.StringBuilder;
 
 class Solution {
     private class IntegerComparator implements Comparator<Integer> {
-        private final int SHIFT = 14;
         @Override
         public int compare (Integer a, Integer b) {
             if (a == b) return 0;
@@ -23,12 +22,11 @@ class Solution {
         Arrays.sort(converted, new IntegerComparator());
         
         StringBuilder ret = new StringBuilder();
+        if (converted[0] == 0) return "0";
         for (int i = 0; i < converted.length; i++) {
-            if (ret.length() == 0 && converted[i] == 0) continue;
             ret.append(converted[i]);
         }
         
-        if (ret.length() == 0) return "0";
         return ret.toString();
     }
 }
