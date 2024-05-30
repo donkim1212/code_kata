@@ -21,11 +21,9 @@ class Solution {
         for (int i = 0; i < numbers.length; i++) converted[i] = numbers[i];
         Arrays.sort(converted, new IntegerComparator());
         
-        StringBuilder ret = new StringBuilder();
         if (converted[0] == 0) return "0";
-        for (int i = 0; i < converted.length; i++) {
-            ret.append(converted[i]);
-        }
+        StringBuilder ret = new StringBuilder();
+        for (int i = 0; i < converted.length; i++) ret.append(converted[i]);
         
         return ret.toString();
     }
