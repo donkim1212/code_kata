@@ -1,8 +1,6 @@
-import java.lang.StringBuilder;
 import java.lang.Math;
 
 class Solution {
-    StringBuilder binary = new StringBuilder();
     public long[] solution(long[] numbers) {
         long[] ret = new long[numbers.length];
         for (int i = 0; i < numbers.length; i++) {
