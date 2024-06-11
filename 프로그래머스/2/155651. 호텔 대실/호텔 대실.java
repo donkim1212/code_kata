@@ -18,7 +18,16 @@ class Solution {
     }
     
     private int convertToInt(String time) {
-        String[] s = time.split(":");
-        return Integer.parseInt(s[0]) * 60 + Integer.parseInt(s[1]);
+        int ret = 0;
+        int temp = 0;
+        for (int i = 0; i < time.length(); i++) {
+            char c = time.charAt(i);
+            if (c == ':') {
+                ret = temp * 60;
+                temp = 0;
+            }
+            else temp = temp * 10 + c - '0';
+        }
+        return ret + temp;
     }
 }
