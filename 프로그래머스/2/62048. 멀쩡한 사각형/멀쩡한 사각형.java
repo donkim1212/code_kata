@@ -1,14 +1,15 @@
-import java.lang.Math;
-
 class Solution {
     public long solution(int w, int h) {
         long answer = (long) w * h;
         if (w == h) return answer - w;
-        // rotate to fit the function's requirement
-        int max = Math.max(w, h);
-        int min = Math.min(w, h);
         
-        return answer - (min + max - getGCD(max, min));
+        if (h > w) {
+            int tmp = h;
+            h = w;
+            w = tmp;
+        }
+        
+        return answer - (w + h - getGCD(w, h));
     }
     
     private int getGCD (int a, int b) {
