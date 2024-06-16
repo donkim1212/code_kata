@@ -12,19 +12,19 @@ class Solution {
         
         long answer = 0;
         for (int weight : set) {
-            long cur = (long) map.get(weight);
-            answer += cur * (cur - 1) / 2;
+            int cur = map.get(weight);
+            answer += (long) cur * (cur - 1) / 2;
             
             // 4 2
             int opposite = map.getOrDefault(weight * 2, 0); 
-            answer += cur * opposite;
+            answer += (long) cur * opposite;
             
             // 4 3, 3 2
             for (int i = 4; i >= 3; i--) {
                 int tmp = weight * i;
                 if (tmp % (i - 1) == 0) {
                     opposite = map.getOrDefault(tmp / (i - 1), 0);
-                    answer += cur * opposite;
+                    answer += (long) cur * opposite;
                 }
             }
         }
