@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.lang.StringBuilder;
 
 public class Main {
     public static void main (String[] args) {
@@ -14,8 +15,10 @@ public class Main {
             
             numerator /= gcd;
             denominator /= gcd;
+            StringBuilder sb = new StringBuilder();
+            sb.append(numerator).append(" ").append(denominator);
             
-            System.out.print(numerator + " " + denominator);
+            System.out.print(sb.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
