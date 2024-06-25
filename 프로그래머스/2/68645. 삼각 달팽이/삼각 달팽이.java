@@ -9,11 +9,9 @@ class Solution {
         setLengths(n);
         answer = new int[lengths[n]];
         visited = new boolean[lengths[n]];
-        // try{
+        
         fillBorder(1, 0, 0);
-        // } catch(Exception e){
-        //     // e.printStackTrace();
-        // }
+        
         return answer;
     }
     
