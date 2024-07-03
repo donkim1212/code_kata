@@ -15,11 +15,9 @@ class Solution {
             result[index++][1] = dest;
             return;
         }
-        else {
-            move (n - 1, origin, dest, mid);
-            move (1, origin, mid, dest);
-            move (n - 1, mid, origin, dest);
-        }
+        move (n - 1, origin, dest, mid);
+        move (1, origin, mid, dest);
+        move (n - 1, mid, origin, dest);
         
     }
     
