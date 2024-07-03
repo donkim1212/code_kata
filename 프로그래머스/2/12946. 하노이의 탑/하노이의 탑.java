@@ -9,15 +9,16 @@ class Solution {
         return result;
     }
     
-    private void move (int n, int originIndex, int midIndex, int destIndex) {
+    private void move (int n, int origin, int mid, int dest) {
         if (n == 1) {
-            result[index++] = new int[] { originIndex, destIndex };
+            result[index][0] = origin;
+            result[index++][1] = dest;
             return;
         }
         else {
-            move (n - 1, originIndex, destIndex, midIndex);
-            move (1, originIndex, midIndex, destIndex);
-            move (n - 1, midIndex, originIndex, destIndex);
+            move (n - 1, origin, dest, mid);
+            move (1, origin, mid, dest);
+            move (n - 1, mid, origin, dest);
         }
         
     }
