@@ -6,13 +6,15 @@ public class Main {
 	private static class Solution {
 		private int[] sequence;
 		private int count = 1;
-		
-		public void solve(int N, int M, int R, ArrayList<Integer>[] list) {
+		private StringBuilder sb = new StringBuilder();
+		public String solve(int N, int M, int R, ArrayList<Integer>[] list) {
 			sequence = new int[N + 1];
 			dfs(R, list);
 			for (int i = 1; i <= N; i++) {
-				System.out.println(sequence[i]);
+				sb.append(sequence[i]);
+				sb.append('\n');
 			}
+			return sb.toString();
 		}
 		
 		private void dfs (int cur, ArrayList<Integer>[] list) {
@@ -40,7 +42,7 @@ public class Main {
 			list[a].add(b);
 			list[b].add(a);
 		}
-		new Solution().solve(N, M, R, list);
+		System.out.println(new Solution().solve(N, M, R, list));
 	}
 	
 	private static int readInt() throws IOException {
