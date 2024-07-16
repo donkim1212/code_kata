@@ -5,32 +5,30 @@ import java.lang.StringBuilder;
 public class Main {
     private static class Solution {
         private boolean[][] visited;
-        private int[] dy = new int[]{ -1, 1, 0, 0 };
-        private int[] dx = new int[]{ 0, 0, -1, 1};
+        private boolean[][] arr;
         private int count = 0;
         private int maxSize = 0;
         public void solve(int n, int m, boolean[][] arr) {
+        	this.arr = arr;
             visited = new boolean[n][m];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++){
                     if (visited[i][j] || !arr[i][j]) continue;
-                    maxSize = Math.max(dfs(1, i, j, arr), maxSize);
+                    maxSize = Math.max(dfs(1, i, j), maxSize);
                     count++;
                 }
             }
             printResult();
         }
         
-        private int dfs (int count, int i, int j, boolean[][] arr) {
-            visited[i][j] = true;
-            for (int k = 0; k < 4; k++) {
-                int ni = i + dy[k];
-                int nj = j + dx[k];
-                if (ni >= 0 && ni < arr.length && nj >= 0 && nj < arr[0].length) {
-                    if (visited[ni][nj] || !arr[ni][nj]) continue;
-                    count += dfs(1, ni, nj, arr);
-                }
-            }
+        private int dfs (int count, int i, int j) {
+        	visited[i][j] = true;
+            
+            if (i - 1 >= 0 && arr[i - 1][j] && !visited[i - 1][j]) count += dfs(1, i - 1, j);
+            if (i + 1 < arr.length && arr[i + 1][j] && !visited[i + 1][j]) count += dfs(1, i + 1, j);
+            if (j - 1 >= 0 && arr[i][j - 1] && !visited[i][j - 1]) count += dfs(1, i, j - 1);
+            if (j + 1 < arr[0].length && arr[i][j + 1] && !visited[i][j + 1]) count += dfs(1, i, j + 1);
+            
             return count;
         }
         
